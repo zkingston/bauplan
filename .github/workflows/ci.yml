@@ -1,0 +1,52 @@
+name: ci
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 26
+          cache: npm
+      - uses: astral-sh/setup-uv@v10.2.0
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      # The game is one HTML file, with all files inline. The fonts are most of its size, so this
+      # step removes the characters and weights that the game does not use.
+      - name: Subset fonts
+        run: uv run --no-project --with fonttools --with brotli python web/scripts/subset-fonts.py
+      - run: npm run build
+      # The browser tests run on the build, in the Chrome of the runner.
+      - run: node --test "web/e2e/*.test.ts"
+      - name: Report size
+        run: |
+          f=web/dist/index.html
+          echo "index.html: $(wc -c < $f) bytes, $(gzip -9c $f | wc -c) gzipped" >> "$GITHUB_STEP_SUMMARY"
+      - if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: web/dist
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

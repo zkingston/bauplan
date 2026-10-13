@@ -1,0 +1,173 @@
+/* Levels: one wide composition of level panels and shapes. It scrolls to the right. */
+.levels-page {
+  height: 100%;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) 32px;
+}
+.levels {
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  user-select: none;
+  scrollbar-width: none;
+}
+.levels::-webkit-scrollbar {
+  display: none;
+}
+/* The scrollbar of the levels is a drafting line, as the timeline is: a thin red line with ticks at
+   both ends and below each level. A black bar shows the part in view. */
+.levels-bar {
+  position: relative;
+  margin: 0 16px;
+  cursor: pointer;
+  touch-action: none;
+  background:
+    linear-gradient(var(--red) 0 0) center / 100% 1px no-repeat,
+    linear-gradient(var(--red) 0 0) left center / 1px 12px no-repeat,
+    linear-gradient(var(--red) 0 0) right center / 1px 12px no-repeat;
+}
+.levels-bar .tick {
+  position: absolute;
+  top: 50%;
+  width: 1px;
+  height: 8px;
+  margin-top: -4px;
+  background: var(--ink);
+}
+.levels-bar .thumb {
+  position: absolute;
+  top: 50%;
+  height: 8px;
+  margin-top: -4px;
+  background: var(--ink);
+  cursor: grab;
+}
+.levels-inner {
+  position: relative;
+}
+.levels-art {
+  position: absolute;
+  display: block;
+}
+.panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--tile) * 0.14);
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: -6px 6px 0 var(--ink);
+  /* The shadow fills the grid tiles of the panel, and the panel is raised out of them. */
+  translate: 6px -6px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.panel .num {
+  font-size: calc(var(--tile) * 0.6);
+  line-height: 1;
+  font-weight: 600;
+}
+.panel .title {
+  margin-top: auto;
+  letter-spacing: 0.08em;
+}
+.panel.solved {
+  background: var(--ink);
+  color: var(--paper);
+  /* The shadow of a filled panel is a thin offset outline, so it looks separate from the panel. */
+  box-shadow:
+    -6px 6px 0 -2px var(--paper),
+    -6px 6px 0 0 var(--ink);
+}
+a.panel:focus-visible {
+  background: var(--blue);
+  color: var(--on-blue);
+  outline: none;
+}
+@media (hover: hover) {
+  a.panel:hover {
+    background: var(--blue);
+    color: var(--on-blue);
+    outline: none;
+  }
+}
+.panel.locked {
+  background: var(--airbrush);
+  border-color: color-mix(in srgb, var(--ink) 30%, var(--paper));
+  box-shadow: -6px 6px 0 color-mix(in srgb, var(--ink) 30%, var(--paper));
+  color: color-mix(in srgb, var(--ink) 55%, var(--paper));
+}
+/* The colored panels: the yellow Tutorial before level 1, so it shows where to start, and the
+   editor, Unlimited, and About after the last level. */
+.panel:is(.tutorial-panel, .editor-panel, .unlimited-panel, .about-panel) {
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 0;
+  font-size: calc(var(--tile) * 0.24);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+.panel:is(.tutorial-panel, .editor-panel) {
+  background: var(--yellow);
+}
+.panel.unlimited-panel {
+  background: var(--blue);
+  color: var(--on-blue);
+}
+.panel.about-panel {
+  background: var(--red);
+  color: var(--on-red);
+  font-size: calc(var(--tile) * 0.17);
+}
+@media (hover: hover) {
+  .panel:is(.tutorial-panel, .editor-panel):hover:not(:disabled) {
+    background: var(--blue);
+    color: var(--on-blue);
+  }
+  .panel:is(.unlimited-panel, .about-panel):hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+}
+.panel.locked .state {
+  background: color-mix(in srgb, var(--ink) 55%, var(--paper));
+}
+
+/* On a phone, the composition goes down the page, and the drafting line is on the right edge. */
+.phone .panel {
+  padding: 6px;
+  font-size: 11px;
+}
+.phone .panel:is(.tutorial-panel, .editor-panel, .unlimited-panel, .about-panel) {
+  font-size: 13px;
+}
+.phone .levels-page {
+  grid-template-rows: none;
+  grid-template-columns: minmax(0, 1fr) 28px;
+}
+.phone .levels {
+  overflow-x: hidden;
+  overflow-y: auto;
+  cursor: auto;
+}
+.phone .levels-bar {
+  margin: 16px 0;
+  background:
+    linear-gradient(var(--red) 0 0) center / 1px 100% no-repeat,
+    linear-gradient(var(--red) 0 0) center top / 12px 1px no-repeat,
+    linear-gradient(var(--red) 0 0) center bottom / 12px 1px no-repeat;
+}
+.phone .levels-bar .tick {
+  left: 50%;
+  width: 8px;
+  height: 1px;
+  margin: 0 0 0 -4px;
+}
+.phone .levels-bar .thumb {
+  left: 50%;
+  width: 8px;
+  margin: 0 0 0 -4px;
+}

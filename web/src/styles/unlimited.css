@@ -1,0 +1,148 @@
+/* Unlimited: the board fills the stage. The message, the zoom buttons, the controls, and the dock
+   float over it. A float lets clicks through, except on its buttons. */
+.unlimited .stage {
+  display: block;
+  padding: 0;
+}
+.unlimited .stage > .plane {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--paper);
+  touch-action: none;
+  cursor: crosshair;
+}
+/* With the pan tool, the board shows a hand that grabs. Any drag that moves the board grabs. */
+.unlimited .stage > .plane.pan {
+  cursor: grab;
+}
+.unlimited .stage > .plane.moving {
+  cursor: grabbing;
+}
+.plane canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.plane .plane-map {
+  image-rendering: pixelated;
+}
+/* Text over the board is on paper. */
+.unlimited .status,
+.unlimited .speed {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+}
+/* The message is at the top, in the middle, so that it does not move the controls. */
+.unlimited .status {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  left: 50%;
+  translate: -50%;
+  width: max-content;
+  max-width: calc(100% - 320px);
+  padding: 4px 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  pointer-events: none;
+}
+.plane-tools {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  display: flex;
+  gap: 4px;
+}
+.plane-tools button,
+.unlimited .speeds button {
+  min-height: 32px;
+  min-width: 32px;
+  padding: 0 8px;
+}
+.unlimited .stage > .controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  height: auto;
+  pointer-events: none;
+}
+.unlimited .controls button {
+  pointer-events: auto;
+}
+.unlimited .speeds {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-left: 8px;
+}
+.unlimited .speed {
+  min-width: 96px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+}
+
+.phone .unlimited .stage {
+  padding: 0;
+}
+/* On a phone, the buttons are in the top right corner, and the message is below them. */
+.phone .unlimited .status {
+  top: 48px;
+  max-width: calc(100% - 16px);
+  padding: 2px 8px;
+  white-space: normal;
+  text-align: center;
+  font-size: 11px;
+}
+.phone .plane-tools {
+  top: 8px;
+  right: 8px;
+}
+.phone .unlimited .stage > .controls {
+  bottom: 8px;
+  grid-template-columns: minmax(0, 1fr);
+}
+.phone .unlimited .speeds {
+  margin-left: 4px;
+}
+.phone .unlimited .speeds button {
+  min-height: 0;
+  height: var(--tap);
+  min-width: var(--tap);
+  padding: 0;
+}
+.phone .unlimited .speed {
+  min-width: 64px;
+  height: var(--tap);
+  font-size: 10px;
+}
+
+/* The help: a line about Unlimited and its examples, each with a button that loads it, and on a
+   desktop, the controls beside them. */
+.unlimited .help:not([hidden]) {
+  display: grid;
+  grid-template-columns: 300px max-content;
+  gap: 28px;
+}
+.phone .unlimited .help {
+  grid-template-columns: minmax(0, 1fr);
+  width: 320px;
+}
+.help p {
+  margin: 0 0 10px;
+}
+.help .example {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.3;
+}

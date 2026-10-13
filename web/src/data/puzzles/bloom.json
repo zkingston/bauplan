@@ -1,0 +1,49 @@
+{
+  "v": 3,
+  "profile": "std2",
+  "title": "Bloom",
+  "w": 5,
+  "h": 5,
+  "start": [
+    "... ... ... ... ...",
+    "... ... ... ... ...",
+    "... ... Cb^ ... ...",
+    "... ... ... ... ...",
+    "... ... ... ... ..."
+  ],
+  "target": [
+    "Cb^ Cb^ Cb^ Cb^ Cb^",
+    "Cb^ Cb^ Cb^ Cb^ Cb^",
+    "Cb^ Cb^ Cb^ Cb^ Cb^",
+    "Cb^ Cb^ Cb^ Cb^ Cb^",
+    "Cb^ Cb^ Cb^ Cb^ Cb^"
+  ],
+  "limits": {
+    "rules": 1,
+    "conds": 2
+  },
+  "palette": {
+    "shapes": [
+      "C"
+    ],
+    "colors": [
+      "b"
+    ],
+    "tools": []
+  },
+  "hint": "Some pieces try a rule in more than one direction. The tutorial has example rules.",
+  "solution": [
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Cb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- Cb^ ---",
+        "--- --- ---",
+        "--- --- ---"
+      ]
+    }
+  ]
+}

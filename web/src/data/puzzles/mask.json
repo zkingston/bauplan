@@ -1,0 +1,146 @@
+{
+  "v": 3,
+  "profile": "std2",
+  "title": "Mask",
+  "w": 7,
+  "h": 7,
+  "start": [
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ ### Sb^ Sb^ Sb^",
+    "### Sb^ Sb^ Sb^ Sb^ Sb^ ###",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ ### ### ### Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^"
+  ],
+  "target": [
+    "Dr^ Sb^ Qr< Wyv Qr^ Sb^ Dr^",
+    "Wyv Qr^ Wy> ### Wy< Qr< Wyv",
+    "### Wy< Qrv Wy^ Qr> Wy> ###",
+    "Wy^ Qr> Dr^ Drv Dr^ Qrv Wy^",
+    "Drv Qr< Wyv Wyv Wyv Qr^ Drv",
+    "Dr< Wy> ### ### ### Wy< Dr>",
+    "Sb^ Qrv Wy^ Wy^ Wy^ Qr> Sb^"
+  ],
+  "limits": {
+    "rules": 12,
+    "conds": 2
+  },
+  "palette": {
+    "shapes": [
+      "S",
+      "Q",
+      "C",
+      "D",
+      "H",
+      "W"
+    ],
+    "colors": [
+      "b",
+      "r",
+      "y"
+    ],
+    "tools": [
+      "obstacle"
+    ]
+  },
+  "hint": "A tile can change based on what its neighbor became.",
+  "solution": [
+    {
+      "condition": [
+        "--- ### ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Hb^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- ### ---",
+        "--- Hb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Wb^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "### --- ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Qb> ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- Wb^ ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Cb^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- Wy^ ---",
+        "--- Cb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Dbv ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Wb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Wy^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Qb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Qr^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Db^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Dr^ ---",
+        "--- --- ---"
+      ]
+    }
+  ]
+}

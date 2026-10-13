@@ -1,0 +1,41 @@
+{
+  "v": 3,
+  "profile": "std2",
+  "title": "Build",
+  "w": 2,
+  "h": 1,
+  "start": [
+    "Wb> ..."
+  ],
+  "target": [
+    "Wb> Wb>"
+  ],
+  "limits": {
+    "rules": 1,
+    "conds": 0
+  },
+  "palette": {
+    "shapes": [
+      "W"
+    ],
+    "colors": [
+      "b"
+    ],
+    "tools": []
+  },
+  "solution": [
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Wb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- Wb^ ---",
+        "--- --- ---",
+        "--- --- ---"
+      ],
+      "turn": 1
+    }
+  ]
+}

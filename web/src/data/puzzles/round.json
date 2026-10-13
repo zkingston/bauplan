@@ -1,0 +1,56 @@
+{
+  "v": 3,
+  "profile": "std2",
+  "title": "Round",
+  "w": 7,
+  "h": 7,
+  "start": [
+    "... ... ... ... ... ... ...",
+    "... Sb^ Sb^ ... Sb^ Sb^ ...",
+    "... Sb^ Sb^ ... Sb^ Sr^ ...",
+    "... ... ... ... ... ... ...",
+    "... Sb^ Sy^ Sb^ ... Sb^ ...",
+    "... Sb^ Sb^ Sb^ ... Sb^ ...",
+    "... ... ... ... ... ... ..."
+  ],
+  "target": [
+    "... ... ... ... ... ... ...",
+    "... Qb< Qb^ ... Qb< Qb^ ...",
+    "... Qbv Qb> ... Qbv Sr^ ...",
+    "... ... ... ... ... ... ...",
+    "... Qb< Sy^ Qb^ ... Qb< ...",
+    "... Qbv Sb^ Qb> ... Qb> ...",
+    "... ... ... ... ... ... ..."
+  ],
+  "limits": {
+    "rules": 1,
+    "conds": 2
+  },
+  "palette": {
+    "shapes": [
+      "S",
+      "Q"
+    ],
+    "colors": [
+      "b",
+      "r",
+      "y"
+    ],
+    "tools": []
+  },
+  "hint": "A rule can check whether nearby tiles are empty. The tutorial has example rules.",
+  "solution": [
+    {
+      "condition": [
+        "--- ... ---",
+        "... Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Qb< ---",
+        "--- --- ---"
+      ]
+    }
+  ]
+}

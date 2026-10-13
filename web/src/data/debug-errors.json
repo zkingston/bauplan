@@ -1,0 +1,421 @@
+{
+  "puzzle": {
+    "v": 3,
+    "profile": "std2",
+    "title": "Rule errors",
+    "w": 2,
+    "h": 1,
+    "start": [
+      "Qb^ ..."
+    ],
+    "target": [
+      "Qb^ Qb^"
+    ],
+    "limits": {
+      "rules": 12,
+      "conds": 2
+    },
+    "palette": {
+      "shapes": [
+        "S",
+        "Q",
+        "T",
+        "L",
+        "C",
+        "D",
+        "W"
+      ],
+      "colors": [
+        "b",
+        "r"
+      ],
+      "tools": [
+        "obstacle"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "title": "Copy and turn",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Wb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- Wb> ---",
+          "--- --- ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "a piece cannot both copy and turn"
+    },
+    {
+      "title": "Copy and recolor",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Sb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- Sr^ ---",
+          "--- --- ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "a piece cannot both copy and recolor"
+    },
+    {
+      "title": "Copy and cut",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Sb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- Qb^ ---",
+          "--- --- ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "a piece cannot both copy and cut"
+    },
+    {
+      "title": "Turn and recolor",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Wb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Wr> ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "a piece cannot both turn and recolor"
+    },
+    {
+      "title": "Half turn",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Wb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Wbv ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "a piece can only turn a quarter"
+    },
+    {
+      "title": "Cut and recolor",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Sb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Qr^ ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "a piece cannot both cut and recolor"
+    },
+    {
+      "title": "Cut and turn",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Tb> ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "a piece cannot both cut and turn"
+    },
+    {
+      "title": "Wrong cut",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Cb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Wb^ ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "C cannot be cut into W"
+    },
+    {
+      "title": "Two changes",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- Qb^ ---",
+          "--- Tb^ ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "a rule can only change one tile"
+    },
+    {
+      "title": "Changes another piece",
+      "rule": {
+        "condition": [
+          "--- Tb^ ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- Tr^ ---",
+          "--- --- ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "a piece cannot change other pieces"
+    },
+    {
+      "title": "Removes another piece",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- ... ---",
+          "--- --- ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "a piece cannot remove other pieces"
+    },
+    {
+      "title": "Same piece",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "the piece does not change"
+    },
+    {
+      "title": "Nothing to remove",
+      "rule": {
+        "condition": [
+          "--- ... ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- ... ---",
+          "--- --- ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "there is no piece here to remove"
+    },
+    {
+      "title": "Changes an obstacle",
+      "rule": {
+        "condition": [
+          "--- ### ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- Tb^ ---",
+          "--- --- ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "obstacles cannot change"
+    },
+    {
+      "title": "No change",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- --- ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "this rule has no change"
+    },
+    {
+      "title": "Center is not a piece",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- ... ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Tb^ ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "the center must be a piece with direction up"
+    },
+    {
+      "title": "Too many conditions (2)",
+      "rule": {
+        "condition": [
+          "... ... ...",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Tb^ ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "only 2 conditions per rule"
+    },
+    {
+      "title": "Too many conditions (1)",
+      "rule": {
+        "condition": [
+          "... ... ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Tb^ ---",
+          "--- --- ---"
+        ]
+      },
+      "puzzle": {
+        "limits": {
+          "rules": 12,
+          "conds": 1
+        }
+      },
+      "message": "only 1 condition per rule"
+    },
+    {
+      "title": "No conditions allowed",
+      "rule": {
+        "condition": [
+          "--- ... ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Tb^ ---",
+          "--- --- ---"
+        ]
+      },
+      "puzzle": {
+        "limits": {
+          "rules": 12,
+          "conds": 0
+        }
+      },
+      "message": "no conditions allowed"
+    },
+    {
+      "title": "Shape not in the palette",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Hb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Wb^ ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "H is not in this puzzle's palette"
+    },
+    {
+      "title": "Color not in the palette",
+      "rule": {
+        "condition": [
+          "--- --- ---",
+          "--- Qy^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ]
+      },
+      "message": "y is not in this puzzle's palette"
+    },
+    {
+      "title": "Obstacle not in the palette",
+      "rule": {
+        "condition": [
+          "--- ### ---",
+          "--- Qb^ ---",
+          "--- --- ---"
+        ],
+        "change": [
+          "--- --- ---",
+          "--- Tb^ ---",
+          "--- --- ---"
+        ]
+      },
+      "puzzle": {
+        "palette": {
+          "shapes": [
+            "S",
+            "Q",
+            "T",
+            "L",
+            "C",
+            "D",
+            "W"
+          ],
+          "colors": [
+            "b",
+            "r"
+          ],
+          "tools": []
+        }
+      },
+      "message": "obstacles are not in this puzzle's palette"
+    }
+  ]
+}

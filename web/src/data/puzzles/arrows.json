@@ -1,0 +1,68 @@
+{
+  "v": 3,
+  "profile": "std2",
+  "title": "Arrows",
+  "w": 7,
+  "h": 7,
+  "start": [
+    "... ... ... ... ... ... ...",
+    "... Cb^ Wb> Cb^ Wb> Cb^ ...",
+    "... Wb^ ... Wb^ ... Wbv ...",
+    "... Cb^ Wb< Cy^ Wb> Cb^ ...",
+    "... Wb^ ... Wbv ... Wbv ...",
+    "... Cb^ Wb< Cb^ Wb< Cb^ ...",
+    "... ... ... ... ... ... ..."
+  ],
+  "target": [
+    "... ... ... ... ... ... ...",
+    "... Cy^ Wr> Cy^ Wr> Cy^ ...",
+    "... Wr^ ... Wr^ ... Wrv ...",
+    "... Cy^ Wr< Cy^ Wr> Cy^ ...",
+    "... Wr^ ... Wrv ... Wrv ...",
+    "... Cy^ Wr< Cy^ Wr< Cy^ ...",
+    "... ... ... ... ... ... ..."
+  ],
+  "limits": {
+    "rules": 12,
+    "conds": 2
+  },
+  "palette": {
+    "shapes": [
+      "C",
+      "W"
+    ],
+    "colors": [
+      "b",
+      "r",
+      "y"
+    ],
+    "tools": []
+  },
+  "hint": "A rule can check the direction of a neighbor.",
+  "solution": [
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Wb^ ---",
+        "--- Cy^ ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Wr^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- Wrv ---",
+        "--- Cb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Cy^ ---",
+        "--- --- ---"
+      ]
+    }
+  ]
+}

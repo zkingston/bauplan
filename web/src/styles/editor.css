@@ -1,0 +1,320 @@
+/* Editor and Custom. */
+/* The editor uses the frame of the play screen. The stage holds the fields, the start, the target,
+   and the messages, in the center. The workbench holds the palette, the share and import tools, and
+   the edit/test switch in the far corner. */
+.stage.edit .form {
+  justify-content: center;
+}
+/* The tools fill the same band as the rule cards in Play: from 8 px below the top edge of the bar
+   to 28 px above its bottom. This aligns the two modes, and no tool floats. */
+.io {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: 16px;
+  padding: 8px 16px 28px;
+}
+.io .share {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.io .import {
+  flex: 1;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
+  justify-items: stretch;
+}
+.io .import textarea {
+  grid-column: 1 / -1;
+  resize: none;
+}
+.io .import .errors {
+  grid-area: 2 / 1;
+  height: 32px;
+  overflow-y: auto;
+  line-height: 16px;
+}
+.io .import button {
+  grid-area: 2 / 2;
+}
+/* EDIT and TEST are tabs in one narrow column of full height. The labels are vertical. */
+.mode {
+  margin-left: auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  width: 44px;
+  border-left: 2px solid var(--ink);
+  background: var(--ink);
+}
+.mode button {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+}
+@media (hover: hover) {
+  /* The switch does not change on hover. Only the current mode has a fill. */
+  .mode button:hover:not(:disabled) {
+    background: var(--paper);
+    color: var(--ink);
+  }
+}
+.mode button.on {
+  background: var(--ink);
+  color: var(--paper);
+}
+@media (hover: hover) {
+  .mode button.on:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+}
+.mode button:disabled {
+  color: var(--line);
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+}
+.field {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+input[type='number'],
+input[type='text'],
+textarea,
+.share-url {
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  padding: 4px 8px;
+  min-height: 32px;
+}
+input[type='number'] {
+  width: 72px;
+  appearance: textfield;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.steps {
+  display: grid;
+}
+.steps button {
+  min-height: 0;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+}
+.steps button:active:not(:disabled) {
+  background: none;
+  color: var(--blue);
+}
+@media (hover: hover) {
+  .steps button:hover:not(:disabled) {
+    background: none;
+    color: var(--blue);
+  }
+}
+.field.wide input {
+  width: 240px;
+  max-width: 100%;
+}
+/* The start and the target use the board and target columns of Play. */
+.stage.edit .boards figure:first-child {
+  grid-column: 2;
+}
+.stage.edit .boards figure:last-child {
+  grid-column: 3;
+}
+/* The rows keep their sizes. The editor sizes the boards to fit the space that remains. */
+.stage.edit > * {
+  flex-shrink: 0;
+}
+.stage.edit .hint,
+.stage.edit .errors {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+.notes {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 16px minmax(0, 1fr);
+  gap: 8px;
+}
+.stage.edit .errors {
+  overflow-y: auto;
+  line-height: 16px;
+}
+.editor .board {
+  touch-action: none;
+  cursor: crosshair;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+/* VERIFIED or NOT VERIFIED, next to SHARE, with the size of a button. VERIFIED is in ink. */
+.actions .tag {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 8px;
+}
+.actions .tag.ok {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.share-url,
+textarea {
+  width: 100%;
+}
+.import {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+.custom-import {
+  max-width: 960px;
+  margin-bottom: 24px;
+}
+.custom-import .import {
+  grid-template-columns: minmax(0, 1fr) auto;
+  justify-items: stretch;
+  align-items: start;
+}
+.custom-import textarea {
+  grid-row: span 2;
+  resize: vertical;
+}
+.custom-import .errors {
+  grid-column: 1 / -1;
+}
+.custom-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  max-width: 960px;
+}
+.custom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+  border: 2px solid var(--ink);
+  padding: 8px;
+}
+.custom .title {
+  flex: 1 1 200px;
+}
+
+/* On a phone, the editor is a page that scrolls: the edit and test tabs, the fields, one board, the
+   messages, and the tools. The palette stays fixed at the bottom of the screen. */
+.phone .editor {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  /* This space lets the last tools scroll above the fixed palette. */
+  padding-bottom: 160px;
+}
+.phone .mode {
+  display: flex;
+  width: auto;
+  margin: 0;
+  border-left: 0;
+  border-bottom: 2px solid var(--ink);
+}
+.phone .mode button {
+  flex: 1;
+  min-height: 36px;
+  writing-mode: horizontal-tb;
+  transform: none;
+}
+.phone .stage.edit {
+  padding: 12px;
+}
+.phone .stage.edit > .form {
+  height: auto;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.phone .field.wide,
+.phone .field.wide input {
+  width: 100%;
+}
+/* The editor page grows with its rows, so the board box keeps the height of its board. (In Play,
+   the box takes the space that the other rows leave.) */
+.phone .stage.edit .boards {
+  flex: none;
+  min-height: auto;
+}
+.phone .stage.edit > .notes {
+  height: auto;
+}
+.phone .stage.edit > .view-tabs {
+  margin-top: 16px;
+}
+/* The tools are one column of full-width rows: the four actions in a 2×2 grid, the share link, and
+   then the import box with its button below it. */
+.phone .io {
+  flex-direction: column;
+  padding: 16px 12px;
+}
+.phone .io .share {
+  gap: 8px;
+}
+.phone .io .actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.phone .io .import {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: none;
+}
+.phone .io .import button,
+.phone .io .import .errors {
+  grid-area: auto;
+}
+.phone .io .import .errors {
+  height: auto;
+}
+.phone .editor .palette {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  background: var(--paper);
+}

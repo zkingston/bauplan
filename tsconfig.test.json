@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": { "lib": ["ES2023", "ESNext.TypedArrays", "DOM"], "types": ["node"] },
+  "include": ["engine/test", "web/src/**/*.test.ts", "web/e2e", "solver"]
+}

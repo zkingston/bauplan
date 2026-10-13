@@ -1,0 +1,9 @@
+[project]
+name = "bauplan-solver"
+version = "0.1.0"
+description = "GPU search for bauplan rule lists"
+requires-python = ">=3.12"
+dependencies = ["numpy", "torch"]
+
+[tool.uv]
+package = false

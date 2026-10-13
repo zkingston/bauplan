@@ -1,0 +1,45 @@
+{
+  "v": 3,
+  "profile": "std2",
+  "title": "Line",
+  "w": 6,
+  "h": 3,
+  "start": [
+    "... ... ... ... ... ...",
+    "Wb> ... ... ... ... ...",
+    "... ... ... ... ... ..."
+  ],
+  "target": [
+    "... ... ... ... ... ...",
+    "Wb> Wb> Wb> Wb> Wb> Wb>",
+    "... ... ... ... ... ..."
+  ],
+  "limits": {
+    "rules": 1,
+    "conds": 2
+  },
+  "palette": {
+    "shapes": [
+      "W"
+    ],
+    "colors": [
+      "b"
+    ],
+    "tools": []
+  },
+  "hint": "A rule can add a piece next to its own. The tutorial has example rules.",
+  "solution": [
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Wb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- Wb^ ---",
+        "--- --- ---",
+        "--- --- ---"
+      ]
+    }
+  ]
+}

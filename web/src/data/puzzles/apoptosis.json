@@ -1,0 +1,117 @@
+{
+  "v": 3,
+  "profile": "std2",
+  "title": "Apoptosis",
+  "w": 7,
+  "h": 7,
+  "start": [
+    "Wb< Cb^ Sb^ Sb^ Sb^ Cb^ Wb>",
+    "Cb^ Cr^ Sb^ Sb^ Sb^ Cr^ Cb^",
+    "Sb^ Sb^ Sb^ Wbv Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Wb> Cy^ Wb< Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Wb^ Sb^ Sb^ Sb^",
+    "Cb^ Cr^ Sb^ Sb^ Sb^ Cr^ Cb^",
+    "Wb< Cb^ Sb^ Sb^ Sb^ Cb^ Wb>"
+  ],
+  "target": [
+    "... ... ... Cy^ ... ... ...",
+    "... ... Cy^ Cy^ Cy^ ... ...",
+    "... Cy^ Cy^ Wyv Cy^ Cy^ ...",
+    "Cy^ Cy^ Wy> Cy^ Wy< Cy^ Cy^",
+    "... Cy^ Cy^ Wy^ Cy^ Cy^ ...",
+    "... ... Cy^ Cy^ Cy^ ... ...",
+    "... ... ... Cy^ ... ... ..."
+  ],
+  "limits": {
+    "rules": 12,
+    "conds": 2
+  },
+  "palette": {
+    "shapes": [
+      "S",
+      "C",
+      "W"
+    ],
+    "colors": [
+      "b",
+      "r",
+      "y"
+    ],
+    "tools": []
+  },
+  "hint": "A piece can change each step until a rule removes it.",
+  "solution": [
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Cb^ ---",
+        "--- --- Sb^"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Cr^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Wb^ Sb^",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Wy^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Cr^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- ... ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Wb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- ... ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "Cb^ Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Cb^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Cb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Cy^ ---",
+        "--- --- ---"
+      ]
+    }
+  ]
+}

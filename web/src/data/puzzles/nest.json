@@ -1,0 +1,129 @@
+{
+  "v": 3,
+  "profile": "std2",
+  "title": "Nest",
+  "w": 7,
+  "h": 7,
+  "start": [
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Cy^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^"
+  ],
+  "target": [
+    "Qb< Sb^ Sb^ Sb^ Sb^ Sb^ Qb^",
+    "Sb^ Qy< Sy^ Sy^ Sy^ Qy^ Sb^",
+    "Sb^ Sy^ Qr< Sr^ Qr^ Sy^ Sb^",
+    "Sb^ Sy^ Sr^ Cy^ Sr^ Sy^ Sb^",
+    "Sb^ Sy^ Qrv Sr^ Qr> Sy^ Sb^",
+    "Sb^ Qyv Sy^ Sy^ Sy^ Qy> Sb^",
+    "Qbv Sb^ Sb^ Sb^ Sb^ Sb^ Qb>"
+  ],
+  "limits": {
+    "rules": 12,
+    "conds": 2
+  },
+  "palette": {
+    "shapes": [
+      "S",
+      "Q",
+      "C"
+    ],
+    "colors": [
+      "b",
+      "r",
+      "y"
+    ],
+    "tools": []
+  },
+  "hint": "A color can spread from piece to piece.",
+  "solution": [
+    {
+      "condition": [
+        "--- Cy^ ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sr^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "Cy^ --- ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sr^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- Sr^ ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sy^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "Sr^ --- ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sy^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- Sr^ ---",
+        "Sr^ Sr^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Qr> ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- Sy^ ---",
+        "Sy^ Sy^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Qy> ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Sb^ ---",
+        "--- --- Qy<"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Qb< ---",
+        "--- --- ---"
+      ]
+    }
+  ]
+}

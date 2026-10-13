@@ -1,0 +1,517 @@
+/* Play has a fixed widescreen layout. The stage is at the top. The control bar, the rule strip, and
+   the palette are along the bottom, as a taskbar. */
+body.fixed {
+  height: calc(100vh / var(--zoom, 1));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+body.fixed main {
+  flex: 1;
+  min-height: 0;
+  padding: 0;
+}
+.play,
+.editor {
+  height: 100%;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+.stage {
+  position: relative;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+}
+.stage h1 {
+  margin: 0;
+}
+/* Play and the editor use the same frame: a top row and a block below the boards, each with a
+   fixed height. Thus the boards stay in place when the player changes between them. */
+.stage > h1,
+.stage > .form {
+  flex: none;
+  height: 56px;
+}
+.stage > .controls,
+.stage > .notes {
+  flex: none;
+  height: 100px;
+}
+figure {
+  margin: 0;
+  position: relative;
+  isolation: isolate;
+}
+/* Red construction lines on the top and left edges of the board. They extend past the corners. */
+figure::before,
+figure::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background: var(--red);
+  opacity: 0.4;
+}
+figure::before {
+  left: -8px;
+  right: -8px;
+  top: 0;
+  height: 1px;
+}
+figure::after {
+  top: -8px;
+  bottom: 24px;
+  left: 0;
+  width: 1px;
+}
+.board {
+  display: block;
+  border: 2px solid var(--ink);
+  box-sizing: content-box;
+  box-shadow: -6px 6px 0 var(--ink);
+}
+figcaption {
+  display: inline-block;
+  margin-top: 16px;
+}
+/* The boards are in the center, between the previous and next triangles. */
+.stage .boards {
+  display: grid;
+  grid-template-columns: 1fr auto auto 1fr;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+}
+/* The board box takes all the height that the title row and the controls leave. Play and the
+   editor size the boards to fill it. */
+.stage > .boards {
+  flex: 1 1 0;
+  min-height: 0;
+}
+.nav-fig:first-child {
+  justify-self: start;
+}
+.nav-fig:last-child {
+  justify-self: end;
+}
+/* The turn triangles. The next triangle is grey until the player wins the puzzle. */
+.nav-arrow {
+  display: block;
+  width: 72px;
+  height: 80px;
+  color: var(--line);
+}
+.nav-arrow svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+.nav-arrow[data-href] {
+  color: var(--ink);
+}
+@media (hover: hover) {
+  .nav-arrow[data-href]:hover {
+    color: var(--blue);
+  }
+}
+/* The controls are below the boards, in the center: the timeline, the transport below it, and one
+   status line of fixed size (inspect, paint feedback, or the outcome). Thus text cannot move the
+   layout. */
+.controls {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.timeline {
+  display: grid;
+  grid-template-columns: minmax(0, 360px);
+}
+.transport {
+  display: flex;
+  gap: 8px;
+}
+/* All square controls have the size of a palette brush. */
+.transport button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+}
+.glyph {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+.glyph .stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.transport .dial {
+  padding: 8px;
+  line-height: 0;
+}
+.dial svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.dial .needle {
+  stroke-width: 2.5;
+}
+.dial .pivot {
+  fill: currentColor;
+  stroke: none;
+}
+/* The timeline is a drafting line: a thin red line for the full step limit, with a tick at each
+   step played so far (--r ticks, which go --reach of the way), and a black square. */
+.timeline input[type='range'] {
+  --tick: var(--ink);
+  --mark: var(--red);
+  appearance: none;
+  min-width: 0;
+  height: 24px;
+  margin: 0;
+  background:
+    linear-gradient(var(--mark) 0 0) center / 100% 1px no-repeat,
+    repeating-linear-gradient(
+        90deg,
+        var(--tick) 0 1px,
+        transparent 1px calc((100% - 1px) / var(--r, 1))
+      )
+      6px center / calc((100% - 12px) * var(--reach, 0) + 1px) 8px no-repeat;
+}
+.timeline input[type='range']:disabled {
+  --tick: var(--line);
+  --mark: var(--line);
+}
+.timeline input[type='range']::-webkit-slider-runnable-track {
+  height: 24px;
+}
+.timeline input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-top: 6px;
+  background: var(--tick);
+}
+.timeline input[type='range']::-moz-range-track {
+  background: none;
+}
+.timeline input[type='range']::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 0;
+  background: var(--tick);
+}
+.outcome,
+.controls .hint,
+.controls .inspect {
+  width: 100%;
+  height: 16px;
+  text-align: center;
+}
+.toggle {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* On a phone, Play is a portrait stack. The title row has the previous triangle, the title and the
+   tabs in the center, and the next triangle. The board is in the center of the remaining space,
+   and the controls are below it. Below them, the rule cards show one card at a time (swipe to
+   change the card). The palette is below the cards and stays on screen. Play buttons and palette
+   tiles have one square size, --tap. A rule tile is the square inside their 2 px border. */
+.phone {
+  --tap: 32px;
+}
+@media (max-height: 760px) {
+  .phone {
+    --tap: 28px;
+  }
+}
+.phone .stage {
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 8px 12px 4px;
+}
+.phone .stage > h1 {
+  width: 100%;
+  height: 36px;
+  flex-wrap: nowrap;
+  gap: 8px;
+  font-size: 17px;
+}
+.phone .stage > h1 > .nav-fig:first-child {
+  margin-right: auto;
+}
+.phone .stage > h1 > .nav-fig:last-child {
+  margin-left: auto;
+}
+.phone .stage > h1 .heading {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.phone .stage > h1 > button,
+.phone .stage > h1 > .button {
+  display: none;
+}
+.phone .stage > h1 .nav-fig::before,
+.phone .stage > h1 .nav-fig::after,
+.phone .stage > h1 figcaption {
+  display: none;
+}
+.phone .nav-arrow {
+  width: 24px;
+  height: 28px;
+}
+/* The board box takes all the space that the other rows leave. play.ts sizes the board to fill
+   it. */
+.phone .stage .boards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phone .boards figcaption {
+  display: none;
+}
+.phone .boards figure::after {
+  bottom: 0;
+}
+.phone .view-tabs {
+  display: flex;
+  flex: none;
+}
+.phone .view-tabs button {
+  min-height: 0;
+  height: var(--tap);
+  padding: 0 6px;
+  font-size: 11px;
+}
+.phone .view-tabs button + button {
+  border-left: 0;
+}
+.phone .view-tabs button.on {
+  background: var(--ink);
+  color: var(--paper);
+}
+.phone .target-fig,
+.phone .show-target .board-fig {
+  display: none;
+}
+.phone .show-target .target-fig {
+  display: block;
+}
+.phone .stage > .controls {
+  height: auto;
+}
+.phone .controls {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 4px 8px;
+}
+.phone .controls > :not(.timeline, .transport) {
+  grid-column: 1 / -1;
+}
+.phone .timeline {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+}
+.phone .transport {
+  gap: 4px;
+}
+.phone .transport button {
+  min-height: 0;
+  width: var(--tap);
+  height: var(--tap);
+}
+.phone .transport .dial {
+  padding: 5px;
+}
+.phone .glyph {
+  width: 16px;
+  height: 16px;
+}
+.phone .outcome,
+.phone .controls .hint,
+.phone .controls .inspect {
+  font-size: 11px;
+}
+
+/* The switch between EDIT and TEST is at the top in both modes. */
+.phone .play {
+  display: flex;
+  flex-direction: column;
+}
+.phone .play > .stage {
+  flex: 1;
+}
+
+/* The status line has space for two lines, so a long message does not move the board. A short
+   message is in the middle of the space. */
+.phone .controls > .outcome,
+.phone .controls > .hint {
+  height: 28px;
+  line-height: 14px;
+  white-space: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phone .controls > .outcome > span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+/* There is one status line below the transport. The three messages share one grid area. A rule
+   error shows first. If there is no error, the paint hint shows until the next edit. If there is no
+   hint, the inspected tile shows. If there is no inspected tile, the outcome shows. */
+.controls > .outcome,
+.controls > .inspect,
+.controls > .hint {
+  grid-area: 3 / 1;
+}
+.phone .controls > .outcome,
+.phone .controls > .inspect,
+.phone .controls > .hint {
+  grid-area: 2 / 1 / 3 / -1;
+}
+.controls .inspect:empty,
+.controls:has(.hint:not(:empty)) .inspect,
+.controls:has(.inspect:not(:empty), .hint:not(:empty)) .outcome:not(.error),
+.controls:has(.outcome.error) :is(.inspect, .hint) {
+  visibility: hidden;
+}
+
+/* The dock: RESET (clears all rules) and HINT, in the bottom-right corner of the stage (at the end
+   of the transport on a phone, as × and ?). When the player asks for the hint, it shows above the
+   buttons on a raised panel. */
+.hint-dock {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  gap: 8px;
+}
+.phone .hint-dock {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  gap: 4px;
+}
+.hint-dock button {
+  min-height: 44px;
+  padding: 0 14px;
+}
+.hint-dock .short,
+.phone .hint-dock .long {
+  display: none;
+}
+.phone .hint-dock .short {
+  display: inline;
+}
+.phone .hint-dock button {
+  min-height: 0;
+  width: var(--tap);
+  height: var(--tap);
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+.hint-dock svg {
+  display: block;
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+}
+/* The confirm note of RESET shows above that button. */
+.hint-dock .confirm {
+  position: relative;
+  display: flex;
+}
+.hint-dock button.on {
+  background: var(--ink);
+  color: var(--paper);
+}
+@media (hover: hover) {
+  .hint-dock button.on:hover:not(:disabled) {
+    background: var(--ink);
+    color: var(--paper);
+  }
+}
+.hint-box {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  z-index: 5;
+  width: max-content;
+  max-width: min(280px, calc(100vw - 24px));
+  padding: 8px 12px;
+  border: 2px solid var(--ink);
+  box-shadow: -6px 6px 0 var(--ink);
+  background: var(--paper);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* The help (?) of Play and Unlimited: a box under the button, on a raised panel as the hint is. It
+   lists the controls that the screen does not show: in each group, each key or gesture is next to
+   what it does. */
+.help-corner {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 5;
+  display: flex;
+  gap: 4px;
+}
+.help-corner .help-button {
+  min-width: 32px;
+}
+.help-button.on {
+  background: var(--ink);
+  color: var(--paper);
+}
+.help {
+  top: calc(100% + 12px);
+  bottom: auto;
+  max-width: calc(100vw - 24px);
+}
+.help h3 {
+  margin: 0 0 6px;
+}
+.keys {
+  display: grid;
+  gap: 12px;
+}
+.keys dl {
+  display: grid;
+  grid-template-columns: 208px max-content;
+  gap: 2px 16px;
+  margin: 0;
+}
+.keys dt {
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+}
+.keys dd {
+  margin: 0;
+  font-size: 13px;
+  line-height: 20px;
+}

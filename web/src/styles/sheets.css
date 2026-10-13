@@ -1,0 +1,146 @@
+/* Modal sheets (tutorial, about, settings). The pages of the tutorial are in tutorial.css. The top layer is
+   above the paper grain of the page, so each sheet has its own grain. */
+
+.modal {
+  padding: 0;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: -6px 6px 0 var(--ink);
+}
+.modal::backdrop {
+  background: color-mix(in srgb, var(--ink) 40%, transparent);
+}
+.modal .sheet {
+  position: relative;
+  padding: 24px;
+}
+.modal .sheet::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  background: var(--grain);
+}
+.modal .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.modal h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* About and Settings: a narrow sheet of lines, each with a label. */
+:is(.about, .settings) .sheet {
+  width: 600px;
+}
+:is(.about, .settings) .lines {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.about .lede + .line {
+  margin-top: 6px;
+}
+.about .lede {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+}
+:is(.about, .settings) .line {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  align-items: baseline;
+  gap: 16px;
+  font-size: 14px;
+}
+:is(.about, .settings) .label {
+  justify-self: start;
+  padding: 0 4px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  background: var(--ink);
+  color: var(--paper);
+}
+.about a {
+  color: var(--ink);
+}
+@media (hover: hover) {
+  .about a:hover {
+    color: var(--blue);
+  }
+}
+
+/* On a phone, a sheet has the width of the screen and one column. It scrolls when it is taller than
+   the screen. */
+.phone .modal {
+  width: calc(100vw - 24px);
+  max-width: none;
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+}
+.phone .modal .sheet {
+  width: auto;
+  padding: 16px;
+}
+/* The title and CLOSE stay in view while a sheet scrolls. */
+.phone .modal .head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: -16px -16px 16px;
+  padding: 12px 16px;
+  /* The head has its own grain because it is above the grain of the sheet. */
+  background-color: var(--paper);
+  background-image: var(--grain);
+  background-blend-mode: multiply;
+  border-bottom: 2px solid var(--ink);
+}
+.phone .modal h2 {
+  font-size: 17px;
+}
+.phone :is(.about, .settings) .line {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+}
+/* Settings: in each line, buttons, and a note if an import fails. The chosen colors are dark. */
+.settings .choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.settings p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.settings .note {
+  color: var(--red-text);
+}
+.settings .note:empty {
+  display: none;
+}
+.settings .choice[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+.settings .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+  vertical-align: -1px;
+}
+.settings .dot:nth-of-type(3) {
+  margin-right: 8px;
+}
+
+/* The head of a sheet: the title, then the actions and CLOSE. */
+.modal .head .actions {
+  display: flex;
+  gap: 8px;
+}

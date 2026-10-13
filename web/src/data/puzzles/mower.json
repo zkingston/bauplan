@@ -1,0 +1,104 @@
+{
+  "v": 3,
+  "profile": "std2",
+  "title": "Mower",
+  "w": 7,
+  "h": 7,
+  "start": [
+    "... ... ... ... ... ... ...",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Wr> Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "... ... ... ... ... ... ..."
+  ],
+  "target": [
+    "... ... ... ... ... ... ...",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Qb> Qb> Qb> Qb> Qb> Qb> Qb>",
+    "... ... ... ... ... ... ...",
+    "Qbv Qbv Qbv Qbv Qbv Qbv Qbv",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "... ... ... ... ... ... ..."
+  ],
+  "limits": {
+    "rules": 12,
+    "conds": 2
+  },
+  "palette": {
+    "shapes": [
+      "S",
+      "Q",
+      "W"
+    ],
+    "colors": [
+      "b",
+      "r"
+    ],
+    "tools": []
+  },
+  "hint": "A piece can change itself when another piece is next to it.",
+  "solution": [
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Wr^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- Wr^ ---",
+        "--- --- ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "Wr> Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- ... ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Wr^ Qb>",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- ... ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- Wr< ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Qb< ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "Wr^ Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Qb> ---",
+        "--- --- ---"
+      ]
+    }
+  ]
+}

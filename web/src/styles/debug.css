@@ -1,0 +1,51 @@
+/* The debug page (dev builds only): a grid of rule cards, each with its error. */
+.debug {
+  padding: 16px 24px 48px;
+}
+.debug h1 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+}
+.debug > p {
+  margin: 0 0 24px;
+  font-size: 14px;
+}
+.debug .cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+.debug .case {
+  min-width: 0;
+}
+.debug h3 {
+  display: inline-block;
+  margin: 0;
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  background: var(--ink);
+  color: var(--paper);
+}
+/* One card, without the scroll triangles of the play screen. */
+.debug .strip-arrow {
+  display: none;
+}
+.debug .rule-row {
+  overflow: visible;
+  padding-left: 8px;
+}
+.debug .info {
+  font-size: 12px;
+  line-height: 1.4;
+}
+.debug code {
+  display: block;
+  white-space: pre-wrap;
+  color: color-mix(in srgb, var(--ink) 60%, var(--paper));
+}
+.debug .info p {
+  margin: 2px 0 0;
+}

@@ -1,0 +1,155 @@
+{
+  "title": "Shimmer",
+  "about": "Squares that rotate colors.",
+  "rules": [
+    {
+      "condition": [
+        "--- ... ---",
+        "... Sb^ ---",
+        "--- --- Sb^"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sr^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- ... ---",
+        "... Sr^ ---",
+        "--- --- Sr^"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sy^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- ... ---",
+        "... Sy^ ---",
+        "--- --- Sy^"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- ... ---",
+        "Sb^ Sb^ Sb^",
+        "--- Sb^ ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sr^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- ... ---",
+        "Sr^ Sr^ Sr^",
+        "--- Sr^ ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sy^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- ... ---",
+        "Sy^ Sy^ Sy^",
+        "--- Sy^ ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- Sr^ ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sr^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- Sy^ ---",
+        "--- Sr^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sy^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- Sb^ ---",
+        "--- Sy^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ]
+    }
+  ],
+  "x": -12,
+  "y": -20,
+  "start": [
+    "Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ ... Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ ... Sr^ Sr^ Sr^ ... Sy^ Sy^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ ... Sr^ Sb^ Sr^ ... Sy^ Sr^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ ... Sr^ Sr^ Sr^ ... Sy^ Sy^ Sy^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ ... ... ... ... ... ... ... ... ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ ... Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sr^ Sb^ Sb^ Sy^ Sy^ Sr^ Sy^ Sy^ Sb^ Sb^ Sr^ ... Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ ... Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sr^ Sb^ Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ Sb^ Sr^ ... Sb^ Sy^ Sy^ Sr^ Sy^ Sy^ Sb^ ... Sb^ Sy^ Sy^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sy^ Sy^ Sb^",
+    "Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ ... Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ ... Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^",
+    "Sr^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sr^ ... Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^ ... Sb^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sy^ Sb^",
+    "Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ Sr^ ... Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ ... Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^"
+  ],
+  "view": [
+    -12,
+    -20,
+    38,
+    10
+  ]
+}

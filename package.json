@@ -1,0 +1,24 @@
+{
+  "name": "bauplan",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "engine",
+    "web"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w web",
+    "build": "npm run build -w web",
+    "test": "node --test \"engine/test/*.test.ts\" \"web/src/**/*.test.ts\"",
+    "e2e": "npm run build && node --test \"web/e2e/*.test.ts\"",
+    "typecheck": "tsc -p engine && tsc -p web && tsc -p tsconfig.test.json",
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "prettier": "^3.9.9",
+    "typescript": "~6.0",
+    "vite": "^8.3.2"
+  }
+}

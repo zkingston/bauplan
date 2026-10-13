@@ -1,0 +1,92 @@
+{
+  "v": 3,
+  "profile": "std2",
+  "title": "Wildfire",
+  "w": 7,
+  "h": 7,
+  "start": [
+    "Cy^ Sb^ Sb^ Sb^ Sb^ Sb^ Cr^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sr^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Sb^ Sb^ Sb^ Sb^ Sb^ Sb^ Sb^",
+    "Cr^ Sb^ Sb^ Sb^ Sb^ Sb^ Cy^"
+  ],
+  "target": [
+    "Cy^ Cy^ Cy^ ... Cr^ Cr^ Cr^",
+    "Cy^ Cy^ Cy^ ... Cr^ Cr^ Cr^",
+    "Cy^ Cy^ Cy^ ... Cr^ Cr^ Cr^",
+    "... ... ... ... ... ... ...",
+    "Cr^ Cr^ Cr^ ... Cy^ Cy^ Cy^",
+    "Cr^ Cr^ Cr^ ... Cy^ Cy^ Cy^",
+    "Cr^ Cr^ Cr^ ... Cy^ Cy^ Cy^"
+  ],
+  "limits": {
+    "rules": 12,
+    "conds": 2
+  },
+  "palette": {
+    "shapes": [
+      "S",
+      "C"
+    ],
+    "colors": [
+      "b",
+      "r",
+      "y"
+    ],
+    "tools": []
+  },
+  "hint": "A rule can remove a piece.",
+  "solution": [
+    {
+      "condition": [
+        "--- Sr^ ---",
+        "--- Sb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- Sr^ ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Sr^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- ... ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Cy^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- Cy^ ---",
+        "--- --- ---",
+        "--- --- ---"
+      ]
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Cr^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- Cr^ ---",
+        "--- --- ---",
+        "--- --- ---"
+      ]
+    }
+  ]
+}

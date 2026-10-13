@@ -1,0 +1,67 @@
+{
+  "v": 3,
+  "profile": "std2",
+  "title": "Border",
+  "w": 7,
+  "h": 7,
+  "start": [
+    "Cb^ ... ... ... ... ... ...",
+    "... ... ... ... ... ... ...",
+    "... ... ... ... ... ... ...",
+    "... ... ... ... ... ... ...",
+    "... ... ... ... ... ... ...",
+    "... ... ... ... ... ... ...",
+    "... ... ... ... ... ... Cr^"
+  ],
+  "target": [
+    "Cb^ Cb^ Cb^ Cb^ Cb^ Cb^ ...",
+    "Cb^ Cb^ Cb^ Cb^ Cb^ ... Cr^",
+    "Cb^ Cb^ Cb^ Cb^ ... Cr^ Cr^",
+    "Cb^ Cb^ Cb^ ... Cr^ Cr^ Cr^",
+    "Cb^ Cb^ ... Cr^ Cr^ Cr^ Cr^",
+    "Cb^ ... Cr^ Cr^ Cr^ Cr^ Cr^",
+    "... Cr^ Cr^ Cr^ Cr^ Cr^ Cr^"
+  ],
+  "limits": {
+    "rules": 12,
+    "conds": 2
+  },
+  "palette": {
+    "shapes": [
+      "C"
+    ],
+    "colors": [
+      "b",
+      "r"
+    ],
+    "tools": []
+  },
+  "hint": "If two pieces change the same tile in one step, the tile is contested. Both changes fail.",
+  "solution": [
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Cr^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- Cr^ ---",
+        "--- --- ---",
+        "--- --- ---"
+      ],
+      "turn": 3
+    },
+    {
+      "condition": [
+        "--- --- ---",
+        "--- Cb^ ---",
+        "--- --- ---"
+      ],
+      "change": [
+        "--- --- ---",
+        "--- --- ---",
+        "--- Cb^ ---"
+      ]
+    }
+  ]
+}

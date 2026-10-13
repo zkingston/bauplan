@@ -1,0 +1,367 @@
+/* Base styles: the page, the type, the paper texture, buttons, messages, and the header. This file
+   also holds the shared tags, the triangle buttons, and the phone frame. */
+/* The font is Jost (SIL Open Font License, assets/fonts/OFL.txt), an open alternative to Futura.
+   The repository includes the font files, so the page looks the same everywhere and loads nothing
+   from the network. Each subset has one variable font file. */
+@font-face {
+  font-family: 'Jost';
+  font-weight: 100 900;
+  font-display: block;
+  src: url('../assets/fonts/jost-latin.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Jost';
+  font-weight: 100 900;
+  font-display: block;
+  src: url('../assets/fonts/jost-latin-ext.woff2') format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+/* The layout supports windows of 1280×720 and larger. In a smaller window, main.ts sets --zoom, and
+   the full page scales down as one unit. */
+html {
+  zoom: var(--zoom, 1);
+}
+:root {
+  --paper: #efe5d8;
+  --ink: #141414;
+  /* The three colors, and the colors for color vision deficiency (the setting sets data-cvd). */
+  --std-b: #1f4e9c;
+  --std-r: #d4321f;
+  --std-y: #f2b90c;
+  --cvd-b: #a95ef8;
+  --cvd-r: #e08c1f;
+  --cvd-y: #39cdbd;
+  --blue: var(--std-b);
+  --red: var(--std-r);
+  --yellow: var(--std-y);
+  /* Text on each color: paper or ink, whichever has more contrast. Text in red on the paper. */
+  --on-blue: var(--paper);
+  --on-red: var(--paper);
+  --on-yellow: var(--ink);
+  --red-text: var(--red);
+  --line: #d3c7b7;
+  /* A grey with an airbrush look, as on Schmidt's blocks. */
+  --airbrush: radial-gradient(circle at 30% 25%, #f3eee8, #b3aca4 90%);
+  /* The paper grain: fine fibers on large, soft blotches. It multiplies with the color below it. */
+  --grain:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .32 0 0 0 0 .24 .9 0 0 0 -.38'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.004' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .4 0 0 0 0 .3 .4 0 0 0 -.16'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+/* For color vision deficiency: purple, orange, and teal, which stay apart for most kinds of color
+   blindness. They are light, so text on them is ink, and text in red is ink too. */
+:root[data-cvd] {
+  --blue: var(--cvd-b);
+  --red: var(--cvd-r);
+  --yellow: var(--cvd-y);
+  --on-blue: var(--ink);
+  --on-red: var(--ink);
+  --red-text: var(--ink);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font:
+    16px/24px Jost,
+    Futura,
+    'Century Gothic',
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+/* A paper layer covers the full page: fine grain and large blotches. It multiplies with the colors
+   below it. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  background: var(--grain);
+}
+header {
+  display: flex;
+  gap: 24px;
+  /* The nav and the notice align with the baseline of the title. */
+  align-items: baseline;
+  flex-wrap: wrap;
+  border-bottom: 2px solid var(--ink);
+  padding: 8px 16px;
+}
+.logo {
+  font-size: 24px;
+  line-height: 40px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+}
+.logo svg {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  vertical-align: -6px;
+}
+main {
+  padding: 16px;
+}
+h1 {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 24px;
+  margin: 0 0 16px;
+}
+h2,
+legend,
+figcaption,
+.kw,
+.state,
+.hint,
+.notice,
+.inspect,
+.outcome,
+.toggle {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+h2 {
+  margin: 0 0 8px;
+}
+.notice {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: right;
+  color: var(--red-text);
+}
+/* Help text, results, and errors show as sentences, not in capitals. */
+.hint,
+.outcome {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+/* A message uses one line. Long text ends with an ellipsis and does not wrap, so the layout does
+   not move. */
+.notice,
+.controls .hint,
+.controls .inspect,
+.outcome {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hint {
+  min-height: 16px;
+}
+button,
+select,
+.button {
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  padding: 4px 8px;
+  min-height: 32px;
+  text-decoration: none;
+  display: inline-block;
+}
+button:active:not(:disabled) {
+  background: var(--ink);
+  color: var(--paper);
+}
+@media (hover: hover) {
+  button:hover:not(:disabled),
+  .button:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+}
+button:disabled,
+select:disabled {
+  border-color: var(--line);
+  color: var(--line);
+}
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Black tags with paper-colored letters, as on the labels of Schmidt's construction lines. */
+.panel .state,
+figcaption {
+  align-self: flex-start;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0 4px;
+}
+
+/* Triangle buttons for the rule strip and for the tutorial pages. Each button shows only a
+   triangle. The triangle is blue on hover or press, and pale when it cannot move farther. */
+.strip-arrow,
+.page-arrow {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+}
+.strip-arrow svg,
+.page-arrow svg {
+  fill: currentColor;
+}
+.strip-arrow:active:not(:disabled),
+.page-arrow:active:not(:disabled) {
+  background: none;
+  color: var(--blue);
+}
+@media (hover: hover) {
+  .strip-arrow:hover:not(:disabled),
+  .page-arrow:hover:not(:disabled) {
+    background: none;
+    color: var(--blue);
+  }
+}
+.strip-arrow:disabled,
+.page-arrow:disabled {
+  color: var(--line);
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+}
+/* A link has no href (see setLink in dom.ts). It looks and acts as a link with one. */
+:where(a[data-href]) {
+  cursor: pointer;
+  text-decoration: underline;
+}
+nav a {
+  color: var(--ink);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+.tag {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  border: 2px solid var(--red);
+  color: var(--red-text);
+  padding: 0 8px;
+}
+
+nav .nav-button {
+  border: 0;
+  padding: 0;
+  min-height: 0;
+  background: none;
+  color: var(--ink);
+  text-decoration: underline;
+}
+nav .nav-button:active:not(:disabled) {
+  background: none;
+  color: var(--ink);
+}
+@media (hover: hover) {
+  nav .nav-button:hover:not(:disabled) {
+    background: none;
+    color: var(--ink);
+  }
+}
+
+/* Phones use a portrait layout (html.phone, which main.ts sets). In landscape, a cover asks the
+   player to turn the phone upright. There is no landscape layout. */
+.upright {
+  display: none;
+}
+@media (orientation: landscape) {
+  .phone .upright {
+    position: fixed;
+    inset: 0;
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    background: var(--paper);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+}
+.upright .phone-glyph {
+  width: 40px;
+  height: 64px;
+  border: 3px solid var(--ink);
+  box-shadow: -6px 6px 0 var(--ink);
+  transform: rotate(-90deg);
+}
+
+/* The phone frame uses the dynamic viewport height. The header is one row: the title and the
+   MENU button. */
+.phone body.fixed {
+  height: 100dvh;
+}
+.phone header {
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 12px;
+}
+/* A phone has a MENU button in place of the links. The menu is a panel under the header, at the
+   right, with one choice on each line. A tap outside it closes it. */
+.menu-button,
+.menu {
+  display: none;
+}
+.phone .menu-button {
+  display: block;
+  margin-left: auto;
+}
+.phone header > nav:not(.menu) {
+  display: none;
+}
+.phone header:has(.menu:popover-open) .menu-button {
+  background: var(--ink);
+  color: var(--paper);
+}
+.phone .menu:popover-open {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  inset: 56px 12px auto auto;
+  margin: 0;
+  padding: 0;
+  min-width: 200px;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: -6px 6px 0 var(--ink);
+}
+.phone .menu > :is(a, .nav-button) {
+  padding: 14px 20px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-decoration: none;
+}
+.phone .menu > :is(a, .nav-button) + * {
+  border-top: 1px solid var(--line);
+}
+.phone .menu > :is(a, .nav-button):active {
+  background: var(--ink);
+  color: var(--paper);
+}

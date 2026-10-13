@@ -1,0 +1,534 @@
+/* The tutorial: its pages (How to play, Build, Rules, and Examples) and the page
+   buttons along the bottom. sheets.css has the sheet that holds them. */
+
+.tutorial .sheet {
+  width: 912px;
+  padding-block: 20px;
+}
+/* The tutorial pages are in the same place, so the sheet keeps the size of the largest page. A
+   phone shows only the current page. */
+.tutorial .stack {
+  display: grid;
+}
+.tutorial .page {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+}
+.tutorial .head {
+  margin-bottom: 12px;
+}
+.tutorial .page.off {
+  visibility: hidden;
+}
+.phone .tutorial .page.off {
+  display: none;
+}
+/* Along the bottom: a triangle for the previous page, the page names, and a triangle for the next
+   page. */
+.page-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.page-names {
+  display: flex;
+}
+.page-names button {
+  white-space: nowrap;
+}
+.page-names button + button {
+  border-left: 0;
+}
+.page-names button.on {
+  background: var(--ink);
+  color: var(--paper);
+}
+.page-arrow {
+  width: 40px;
+}
+.page-arrow svg {
+  width: 14px;
+  height: 18px;
+}
+/* When more of the page is below, a tab with a triangle shows on the top edge of the page turns. */
+.page-more {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  min-height: 0;
+  height: 20px;
+  padding: 0;
+  border-bottom: 0;
+  display: grid;
+  place-items: center;
+}
+.page-more[hidden] {
+  display: none;
+}
+.page-more svg {
+  width: 12px;
+  height: 8px;
+  fill: currentColor;
+}
+/* How to play: the board that grows, its target next to it, and the goal below them, in the middle
+   of the page. */
+.tutorial .intro {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.tutorial .intro .art {
+  height: auto;
+  gap: 48px;
+}
+.phone .tutorial .intro .art {
+  flex-direction: column;
+  gap: 16px;
+}
+.tutorial .intro .labeled {
+  margin-top: 0;
+}
+.tutorial .intro p {
+  max-width: 520px;
+  font-size: 15px;
+  text-align: center;
+}
+.tutorial .grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px 32px;
+}
+.tutorial section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tutorial .art {
+  flex: none;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+/* The second row of the rules page (direction, same time, and the palette) needs less space for
+   its pictures. */
+.tutorial .grid section:nth-child(n + 4) .art {
+  height: 88px;
+}
+.tutorial h3 {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  background: var(--ink);
+  color: var(--paper);
+}
+.tutorial p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.tutorial .board {
+  box-shadow: -3px 3px 0 var(--ink);
+}
+.tutorial .pic {
+  grid-template-columns: repeat(3, 24px);
+}
+/* Direction: a leaf rule with its arrows under it, and below it a row of three tiles after each
+   use of the rule. */
+.tutorial .unfold {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.tutorial .unfold .pic {
+  grid-template-columns: repeat(3, 15px);
+}
+.tutorial .leaf-steps {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tutorial .uses {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+.tutorial .uses .kw {
+  font-size: 10px;
+  white-space: nowrap;
+}
+.tutorial .uses b {
+  font-size: 14px;
+}
+/* The brushes of the palette panel: a tile brush, or the arrow of the turn tool, with a frame as
+   in the palette. */
+.tutorial .tool {
+  display: block;
+  border: 2px solid var(--ink);
+}
+.tutorial .tool canvas,
+.tutorial .tool svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+.tutorial .list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.tutorial .row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tutorial .row .kw {
+  width: 64px;
+  font-size: 11px;
+}
+.tutorial .arrow {
+  font-size: 16px;
+}
+/* The two pictures of a rule, with names above them. On a desktop, the names extend above the top
+   of the art, so the pictures stay in the center like those of the other panels. On a phone, the
+   art grows to hold the names, and the arrow moves down to stay level with the pictures. */
+.tutorial .labeled {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: -20px;
+}
+.tutorial .labeled .kw {
+  font-size: 11px;
+}
+/* Build: the parts of the play screen in small, as the screen places them. The board and play are
+   at the top. Below a line, the palette and a rule card. A cursor makes the rule, and the list of
+   steps under it shows the current step. */
+.tutorial .build {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+}
+.tutorial .mock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.tutorial .mock .labeled {
+  margin-top: 0;
+}
+.tutorial .mock-top {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+.tutorial .mock-bottom {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding-top: 16px;
+  border-top: 2px solid var(--ink);
+}
+.tutorial .mock-bottom > :first-child {
+  padding-right: 24px;
+  border-right: 2px solid var(--ink);
+  align-self: stretch;
+}
+.tutorial .mock-palette {
+  display: flex;
+  gap: 6px;
+}
+.tutorial .mock .tool {
+  padding: 2px;
+}
+.tutorial .mock .pic {
+  grid-template-columns: repeat(3, 32px);
+}
+.tutorial .mock .tool.on,
+.tutorial .mock-play.on {
+  background: var(--ink);
+  color: var(--paper);
+}
+.tutorial .mock-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: 2px solid var(--ink);
+  box-shadow: -6px 6px 0 var(--ink);
+}
+.tutorial .mock-card .num {
+  align-self: flex-start;
+  font-weight: 600;
+}
+.tutorial .mock-play {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 4px;
+  border: 2px solid var(--ink);
+}
+.tutorial .mock-play .glyph {
+  width: 16px;
+  height: 16px;
+}
+.tutorial .hit {
+  outline: 3px solid var(--blue);
+  outline-offset: 1px;
+}
+.tutorial .pic canvas.hit {
+  outline-offset: -3px;
+}
+/* The cursor is below the title and the page buttons, which stay in view on a phone. */
+.tutorial .cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 14px;
+  pointer-events: none;
+  transition: opacity 200ms;
+}
+.tutorial .cursor svg {
+  display: block;
+  fill: var(--ink);
+  stroke: var(--paper);
+  stroke-width: 1;
+}
+.tutorial .cursor.away {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tutorial .cursor {
+    transition: none;
+  }
+}
+.tutorial .steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tutorial .steps li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tutorial .step-tag {
+  align-self: flex-start;
+  padding: 0 4px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  background: var(--line);
+}
+.tutorial .steps li.on .step-tag {
+  background: var(--ink);
+  color: var(--paper);
+}
+.phone .tutorial .mock-bottom {
+  flex-direction: column-reverse;
+  align-items: center;
+}
+.phone .tutorial .mock-bottom > :first-child {
+  padding: 16px 0 0;
+  border-right: 0;
+  border-top: 2px solid var(--ink);
+}
+.phone .tutorial .steps {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* The palette panel: the brushes in a row at the top. Under open and empty, an arrow points down
+   to the mark of each in a change picture (= and ×). */
+.tutorial .palette-art {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.tutorial .palette-art .labeled {
+  margin-top: 0;
+  gap: 2px;
+}
+.tutorial .mark-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+.tutorial .mark-stack .down {
+  font-size: 12px;
+  line-height: 12px;
+}
+.phone .tutorial .labeled {
+  margin-top: 0;
+}
+.phone .tutorial .labeled + .arrow {
+  margin-top: 20px;
+}
+/* On a phone, the tutorial has the same size on every page: the height of the screen. The page
+   turns are at the bottom, and a long page scrolls between the title and the page turns. */
+.phone .tutorial.modal {
+  height: calc(100dvh - 24px);
+}
+.phone .tutorial .sheet {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.phone .tutorial .pages,
+.phone .tutorial .stack {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.phone .tutorial .page {
+  flex: 1;
+}
+.phone .tutorial .grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+}
+/* Each panel shows the title, then the picture, then the text, so the title shows where a panel
+   starts. */
+.phone .tutorial section {
+  gap: 10px;
+}
+.phone .tutorial .art,
+.phone .tutorial .grid section .art {
+  height: auto;
+}
+.phone .tutorial h3 {
+  order: -1;
+}
+/* The page turns stay in view at the bottom, as the title stays in view at the top. */
+.phone .page-nav {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  margin: 16px -16px -16px;
+  padding: 8px 4px;
+  background-color: var(--paper);
+  background-image: var(--grain);
+  background-blend-mode: multiply;
+  border-top: 2px solid var(--ink);
+}
+/* On a narrow phone, the page names scroll sideways between the triangles. */
+.phone .page-names {
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.phone .page-names::-webkit-scrollbar {
+  display: none;
+}
+.phone .page-names button {
+  flex: none;
+  padding: 0 4px;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+.phone .page-arrow {
+  width: 24px;
+}
+/* Example rules: for each example, the rules, a line about what they do, and a board before and
+   after. */
+.examples section {
+  display: grid;
+  gap: 8px;
+}
+/* The arrows under two rules make Examples the tallest page, so its parts are closer. A phone
+   scrolls the page, so it keeps more space between the examples. */
+.examples .list {
+  display: grid;
+  gap: 10px;
+}
+.examples section {
+  gap: 6px;
+}
+.phone .examples .list {
+  gap: 24px;
+}
+.examples h3 {
+  justify-self: start;
+}
+.examples .example {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+}
+.examples .rules {
+  display: flex;
+  gap: 16px;
+}
+/* A rule as a rule card shows it: the pictures in a row, and the arrows under the condition. */
+.tutorial .rule-view {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-items: center;
+  gap: 4px 6px;
+}
+.tutorial .rule-view > * {
+  grid-row: 1;
+}
+.tutorial .rule-view > .sym {
+  grid-row: 2;
+}
+.tutorial .rule-view .num {
+  font-size: 13px;
+  font-weight: 600;
+}
+.examples .pic {
+  grid-template-columns: repeat(3, 18px);
+}
+.examples p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+.examples .states {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.examples .arrow {
+  font-size: 13px;
+  white-space: nowrap;
+}
+.phone .examples .example {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+/* On a phone, the rules of an example are in a column. The rules and the boards are in the center
+   of the text width. */
+.phone .examples .rules {
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.phone .examples .states {
+  justify-content: center;
+}
